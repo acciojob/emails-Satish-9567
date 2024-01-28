@@ -15,12 +15,15 @@ class Mails{
 public class Gmail extends Email {
 
     int inboxCapacity; //maximum number of mails inbox can store
-    ArrayList<Mails> inbox=new ArrayList<>();
-    ArrayList<Mails> trash=new ArrayList<>();
+    ArrayList<Mails> inbox;//=new ArrayList<>();
+    ArrayList<Mails> trash=;//new ArrayList<>();
     //Inbox: Stores mails. Each mail has date (Date), sender (String), message (String). It is guaranteed that message is distinct for all mails.
     //Trash: Stores mails. Each mail has date (Date), sender (String), message (String)
     public Gmail(String emailId, int inboxCapacity) {
-        this.inboxCapacity=inboxCapacity;
+        super(emailId);
+        this.inboxCapacity = inboxCapacity;
+        this.inbox = new ArrayList<>();
+        this.trash = new ArrayList<>();
     }
 
     public void receiveMail(Date date, String sender, String message){
