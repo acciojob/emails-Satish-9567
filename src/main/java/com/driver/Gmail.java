@@ -23,7 +23,7 @@ public class Gmail extends Email {
 
     int inboxCapacity; //maximum number of mails inbox can store
     ArrayList<Mails> inbox;//=new ArrayList<>();
-    ArrayList<Mails> trash=;//new ArrayList<>();
+    ArrayList<Mails> trash;//new ArrayList<>();
     //Inbox: Stores mails. Each mail has date (Date), sender (String), message (String). It is guaranteed that message is distinct for all mails.
     //Trash: Stores mails. Each mail has date (Date), sender (String), message (String)
     public Gmail(String emailId, int inboxCapacity) {
@@ -62,7 +62,7 @@ public class Gmail extends Email {
         // Else, return the message of the latest mail present in the inbox
         if(inbox.size()==0)
             return null;
-        return inbox.get(0).message();
+        return inbox.get(0).getMessage();
     }
 
     public String findOldestMessage(){
@@ -70,7 +70,7 @@ public class Gmail extends Email {
         // Else, return the message of the oldest mail present in the inbox
         if(inbox.size()==0)
             return null;
-        return inbox.get(inbox.size()-1).message();
+        return inbox.get(inbox.size()-1).getMessage();
     }
 
     public int findMailsBetweenDates(Date start, Date end){
@@ -102,6 +102,6 @@ public class Gmail extends Email {
 
     public int getInboxCapacity() {
         // Return the maximum number of mails that can be stored in the inbox
-        return inboxCapacity();
+        return inboxCapacity;
     }
 }
