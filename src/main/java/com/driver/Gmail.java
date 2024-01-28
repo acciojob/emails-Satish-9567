@@ -3,14 +3,21 @@ package com.driver;
 import java.util.ArrayList;
 import java.util.Date;
 class Mails{
-    Date date;
-    String sender;
-    String message;
+    private Date date;
+    private String sender;
+    private String message;
     Mails(Date date,String sender,String message){
         this.date=date;
         this.sender=sender;
         this.message=message;
     }
+    public Date getDate() {
+            return date;
+        }
+
+        public String getMessage() {
+            return message;
+        }
 }
 public class Gmail extends Email {
 
@@ -42,7 +49,7 @@ public class Gmail extends Email {
         // Each message is distinct
         // If the given message is found in any mail in the inbox, move the mail to trash, else do nothing
         for (int i = 0; i < inbox.size(); i++) {
-            if (inbox.get(i).message.equals(message)) {
+            if (inbox.get(i).getMessage().equals(message)) {
                 trash.add(inbox.get(i));
                 inbox.remove(i);
                 break; // Once found and moved to trash, exit the loop
@@ -71,7 +78,7 @@ public class Gmail extends Email {
         //It is guaranteed that start date <= end date
          int ans = 0;
         for (int i = 0; i < inbox.size(); i++) {
-            if (inbox.get(i).date.after(start) && inbox.get(i).date.before(end)) {
+            if (inbox.get(i).getDate().after(start) && inbox.get(i).getDate().before(end)) {
                 ans++;
             }
         }
