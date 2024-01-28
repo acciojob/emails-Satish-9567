@@ -11,7 +11,10 @@ class Mails{
         this.sender=sender;
         this.message=message;
     }
-    public Date getDate() {
+        public String getSender(){
+            return sender;
+        }
+        public Date getDate() {
             return date;
         }
 
@@ -62,7 +65,7 @@ public class Gmail extends Email {
         // Else, return the message of the latest mail present in the inbox
         if(inbox.size()==0)
             return null;
-        return inbox.get(0).getMessage();
+        return inbox.get(inbox.size()-1).getMessage();
     }
 
     public String findOldestMessage(){
@@ -70,7 +73,7 @@ public class Gmail extends Email {
         // Else, return the message of the oldest mail present in the inbox
         if(inbox.size()==0)
             return null;
-        return inbox.get(inbox.size()-1).getMessage();
+        return inbox.get(0).getMessage();
     }
 
     public int findMailsBetweenDates(Date start, Date end){
